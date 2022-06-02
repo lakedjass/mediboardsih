@@ -1,8 +1,8 @@
 sudo apt update -y
-sudo apt update -y
+sudo apt upgrade -y
 
 echo "installing apache2"
-sudo apt install apache2
+sudo apt install apache2 -y
 
 echo "make enable apache2"
 sudo systemctl enable apache2
@@ -39,7 +39,8 @@ echo "change rights of directory"
 sudo chmod -R 775 /var/lib/svn
 
 echo "create admn user with passord"
-sudo htpasswd -cm /etc/apache2/dav_svn.passwd admin
+#sudo htpasswd -cm /etc/apache2/dav_svn.passwd admin
+echo -e "debian\ndebian" | sudo  htpasswd -cmi /etc/apache2/dav_svn.passwd admin
 
 echo "svn is installed"
 echo "check in a browser to http://your_domain.com/svn/testrepo/"
