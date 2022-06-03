@@ -6,8 +6,8 @@ cd trunk
 echo "composer install"
 composer install
 
-echo "composer update"
-composer update
+npm install
+npm run build:dev
 
 echo "composer ox-install-config"
 composer ox-install-config
