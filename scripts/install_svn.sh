@@ -1,5 +1,5 @@
 sudo apt update -y
-sudo apt upgrade -y
+#sudo apt upgrade -y
 
 echo "installing apache2"
 sudo apt install apache2 -y

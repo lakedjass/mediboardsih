@@ -2,10 +2,10 @@
 sudo mkdir /opt/zookeeper
 wget https://dlcdn.apache.org/zookeeper/zookeeper-3.7.1/apache-zookeeper-3.7.1.tar.gz -P /tmp
 
-#sudo tar xzf /tmp/apache-zookeeper-3.7.1.tar.gz -C /opt/zookeeper
+
 sudo tar xzf /tmp/apache-zookeeper-3.7.1-bin.tar.gz -C /opt/zookeeper
-#sudo ln -svf /opt/zookeeper/apache-zookeeper-3.7.1 /opt/zookeeper/latest
-#sudo ln -svf /opt/zookeeper/apache-zookeeper-3.8.0 /opt/zookeeper/latest
+sudo ln -svf /opt/zookeeper/apache-zookeeper-3.7.1-bin /opt/zookeeper/latest
+
 sudo mkdir /opt/zookeeper/latest/data
 
 cat << EOF | sudo tee  /etc/profile.d/zookeeper.sh
