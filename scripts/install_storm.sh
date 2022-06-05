@@ -41,6 +41,7 @@ export PATH=\$PATH:\$STORM_HOME/bin
 EOF
 
 source /etc/profile.d/storm.sh
+
 cat << EOF | sudo tee  $STORM_HOME/conf/storm.yaml
 storm.zookeeper.servers:
 - "localhost"

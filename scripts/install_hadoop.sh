@@ -1,14 +1,14 @@
 sudo apt update -y
-sudo apt upgrade -y
+#sudo apt upgrade -y
 
 sudo apt-get install default-jdk -y
 
 sudo useradd -m -U -d /opt/hadoop -s /bin/bash hadoop
 
 
-ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-chmod 0600 ~/.ssh/authorized_keys
+sudo -u kchekam ssh-keygen -t rsa -P '' -f /opt/hadoop/.ssh/id_rsa
+sudo -u kchekam ln -svf ~/.ssh/id_rsa.pub  /opt/hadoop/.ssh/authorized_keys
+sudo chmod 0600 /opt/hadoop/.ssh/authorized_keys
 ssh localhost
 
 wget https://archive.apache.org/dist/hadoop/core/hadoop-3.2.1/hadoop-3.2.1.tar.gz -P /tmp

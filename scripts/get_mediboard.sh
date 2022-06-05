@@ -1,7 +1,7 @@
 
 echo "get source of mediboard project"
 pushd $HOME
-svn co https://svn.openxtrem.com/gpl/trunk/
+#svn co https://svn.openxtrem.com/gpl/trunk/
 
 popd
 
