@@ -7,7 +7,8 @@ echo "composer install"
 composer install
 
 npm install
-npm run build:dev
+export NODE_OPTIONS="--max-old-space-size=8192"
+npm run build-vue
 
 echo "composer ox-install-config"
 composer ox-install-config

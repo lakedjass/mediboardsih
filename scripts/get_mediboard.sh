@@ -5,3 +5,7 @@ echo "get source of mediboard project"
 git clone https://gitlab.com/openxtrem_public/mediboard.git
 
 cd mediboard
+
+mediboard
+mediboard2022
+debian2022

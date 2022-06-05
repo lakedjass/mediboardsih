@@ -26,15 +26,16 @@ sudo -E apt-get install mysql-server -y
 
 #create vivo database with vivo user
 
-#echo "create Vivo User with Password"
-#cat <<EOF | sudo tee ./setup_db_mediboard.sql
-#CREATE USER  mediboard@'localhost' IDENTIFIED BY '$VIVO_PASSWORD';
-#GRANT ALL ON ${DATABASE_NAME}.* TO '$VIVO_USERNAME'@'localhost';
-#FLUSH PRIVILEGES;
-#EOF
-
+echo "create Vivo User with Password"
+cat <<EOF | sudo tee ./setup_db_mediboard.sql
+CREATE DATABASE mediboard;
+CREATE USER 'mediboard'@'localhost' IDENTIFIED WITH mysql_native_password BY 'm3dib0rd';
+GRANT ALL ON mediboard.* TO 'mediboard'@'localhost';
+FLUSH PRIVILEGES;
+EOF
+MYSQL_PASSWORD="debian2022"
 #echo "execute script"
-#mysql -u root -p${MYSQL_PASSWORD} < ./setup_db_vivo.sql
+mysql -u root -p${MYSQL_PASSWORD} < ./setup_db_mediboard.sql
 
 #sudo rm -fv ./setup_db_vivo.sql
 
