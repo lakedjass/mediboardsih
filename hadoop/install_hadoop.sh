@@ -4,11 +4,11 @@ sudo apt update -y
 sudo apt-get install default-jdk -y
 
 sudo useradd -m -U -d /opt/hadoop -s /bin/bash hadoop
+echo -e "hadoop\nhadoop" |sudo passwd hadoop
 
-
-sudo -u hadoop ssh-keygen -t rsa -P '' -f /opt/hadoop/.ssh/id_rsa
-sudo -u hadoop ln -svf ~/.ssh/id_rsa.pub  /opt/hadoop/.ssh/authorized_keys
-sudo chmod 0600 /opt/hadoop/.ssh/authorized_keys
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub  >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
 ssh localhost
 
 wget https://archive.apache.org/dist/hadoop/core/hadoop-3.2.1/hadoop-3.2.1.tar.gz -P /tmp
@@ -16,7 +16,7 @@ wget https://archive.apache.org/dist/hadoop/core/hadoop-3.2.1/hadoop-3.2.1.tar.g
 sudo tar xzf /tmp/hadoop-3.2.1.tar.gz -C /opt/hadoop
 
 sudo ln -svf /opt/hadoop/hadoop-3.2.1 /opt/hadoop/latest
-sudo chown -R hadoop:hadoop /opt/hadoop
+
 
 cat << EOF | sudo tee  /etc/profile.d/hadoop.sh
 #Hadoop Related Options
@@ -28,7 +28,7 @@ export HADOOP_HDFS_HOME=\$HADOOP_HOME
 export YARN_HOME=\$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=\$HADOOP_HOME/lib/native
 export PATH=\$PATH:\$HADOOP_HOME/sbin:\$HADOOP_HOME/bin
-export HADOOP_OPTS="-Djava.library.path=\$HADOOP_HOME/lib/nativ"
+export HADOOP_OPTS="-Djava.library.path=\$HADOOP_HOME/lib/native"
 EOF
 
 source /etc/profile.d/hadoop.sh
@@ -103,7 +103,7 @@ cat << EOF | sudo tee  $HADOOP_HOME/etc/hadoop/yarn-site.xml
 </configuration>
 EOF
 
-hdfs namenode -format
-#start-dfs.sh
-#start-yarn.sh
-#jps
+sudo cp check.sh /opt/hadoop/
+
+sudo chown -R hadoop:hadoop /opt/hadoop
+sudo su - hadoop -c "bash ~/check.sh"
