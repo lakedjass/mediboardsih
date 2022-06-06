@@ -6,8 +6,8 @@ sudo apt-get install default-jdk -y
 sudo useradd -m -U -d /opt/hadoop -s /bin/bash hadoop
 
 
-sudo -u kchekam ssh-keygen -t rsa -P '' -f /opt/hadoop/.ssh/id_rsa
-sudo -u kchekam ln -svf ~/.ssh/id_rsa.pub  /opt/hadoop/.ssh/authorized_keys
+sudo -u hadoop ssh-keygen -t rsa -P '' -f /opt/hadoop/.ssh/id_rsa
+sudo -u hadoop ln -svf ~/.ssh/id_rsa.pub  /opt/hadoop/.ssh/authorized_keys
 sudo chmod 0600 /opt/hadoop/.ssh/authorized_keys
 ssh localhost
 
