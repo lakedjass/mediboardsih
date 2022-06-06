@@ -21,10 +21,10 @@ source /etc/profile.d/spark.sh
 
 start-master.sh 
 start-worker.sh spark://$HOSTNAME:7077
-SPARK_MASTER_WEBUI_PORT=<your preferred port>
+#SPARK_MASTER_WEBUI_PORT=<your preferred port>
 
 cat << EOF | sudo tee  /etc/profile.d/spark.sh
 export SPARK_HOME=/opt/spark/latest
 export PATH=\$PATH:\$SPARK_HOME/bin:\$SPARK_HOME/sbin
 EOF
-conf/spark-env.sh
+#conf/spark-env.sh
