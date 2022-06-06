@@ -3,6 +3,6 @@ pecl install redis
 
 sudo bash -c "echo extension=redis.so > /etc/php/7.3/mods-available/redis.ini"
 
-sudo apt install redis-server
+sudo apt install redis-server -y
 
-sudo apt install php-redis
+sudo apt install php-redis -y
