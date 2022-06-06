@@ -104,6 +104,6 @@ cat << EOF | sudo tee  $HADOOP_HOME/etc/hadoop/yarn-site.xml
 EOF
 
 hdfs namenode -format
-start-dfs.sh
-start-yarn.sh
-jps
+#start-dfs.sh
+#start-yarn.sh
+#jps
