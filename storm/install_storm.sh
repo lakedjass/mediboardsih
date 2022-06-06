@@ -24,6 +24,3 @@ supervisor.slots.ports:
 - 6703
 EOF
 sudo chown -R $USER:$USER /opt/storm
-storm nimbus
-storm supervisor
-storm ui
