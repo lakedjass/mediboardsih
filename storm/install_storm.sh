@@ -1,6 +1,6 @@
 
 sudo mkdir /opt/zookeeper
-wget https://dlcdn.apache.org/zookeeper/zookeeper-3.7.1/apache-zookeeper-3.7.1.tar.gz -P /tmp
+wget https://dlcdn.apache.org/zookeeper/zookeeper-3.7.1/apache-zookeeper-3.7.1-bin.tar.gz -P /tmp
 
 
 sudo tar xzf /tmp/apache-zookeeper-3.7.1-bin.tar.gz -C /opt/zookeeper
@@ -24,7 +24,7 @@ EOF
 sudo chown -R $USER:$USER /opt/zookeeper
 zkServer.sh start
 zkCli.sh
-#https://dlcdn.apache.org/zookeeper/zookeeper-3.8.0/apache-zookeeper-3.8.0.tar.gz
+
 
 
 
