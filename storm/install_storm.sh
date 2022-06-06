@@ -1,4 +1,6 @@
 
+sudo apt-get install default-jdk -y
+
 sudo mkdir /opt/zookeeper
 wget https://dlcdn.apache.org/zookeeper/zookeeper-3.7.1/apache-zookeeper-3.7.1-bin.tar.gz -P /tmp
 
