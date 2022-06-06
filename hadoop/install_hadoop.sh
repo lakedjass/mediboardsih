@@ -6,11 +6,6 @@ sudo apt-get install default-jdk -y
 sudo useradd -m -U -d /opt/hadoop -s /bin/bash hadoop
 echo -e "hadoop\nhadoop" |sudo passwd hadoop
 
-ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub  >> ~/.ssh/authorized_keys
-chmod 0600 ~/.ssh/authorized_keys
-ssh localhost
-
 wget https://archive.apache.org/dist/hadoop/core/hadoop-3.2.1/hadoop-3.2.1.tar.gz -P /tmp
 
 sudo tar xzf /tmp/hadoop-3.2.1.tar.gz -C /opt/hadoop
@@ -90,7 +85,7 @@ cat << EOF | sudo tee  $HADOOP_HOME/etc/hadoop/yarn-site.xml
 </property>
 <property>
 <name>yarn.resourcemanager.hostname</name>
-<value>0.0.0.0</value>
+<value>127.0.0.1</value>
 </property>
 <property>
 <name>yarn.acl.enable</name>
