@@ -90,7 +90,7 @@ cat << EOF | sudo tee  $HADOOP_HOME/etc/hadoop/yarn-site.xml
 </property>
 <property>
 <name>yarn.resourcemanager.hostname</name>
-<value>127.0.0.1</value>
+<value>0.0.0.0</value>
 </property>
 <property>
 <name>yarn.acl.enable</name>
